@@ -84,7 +84,7 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
       defaultClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
       defaultClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
-      defaultClient.setBasePath("https://toocans-brokerapi-dev.bdy.tech");
+      defaultClient.setBasePath("https://paypaz-brokerapi-dev.bdy.tech");
 
     PaypazBrokerOpenApiApi apiInstance = new PaypazBrokerOpenApiApi(defaultClient);
     try {

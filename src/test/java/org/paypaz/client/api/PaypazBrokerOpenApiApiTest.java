@@ -46,7 +46,7 @@ public class PaypazBrokerOpenApiApiTest {
         ApiClient apiClient = new ApiClient();
         apiClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
         apiClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
-        apiClient.setBasePath("https://toocans-brokerapi-dev.bdy.tech");
+        apiClient.setBasePath("https://brokerapi-dev.bdy.tech");
         api = new PaypazBrokerOpenApiApi(apiClient);
     }
 
