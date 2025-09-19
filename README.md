@@ -82,9 +82,9 @@ import org.paypaz.client.api.PaypazBrokerOpenApiApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-      defaultClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
-      defaultClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
-      defaultClient.setBasePath("https://paypaz-brokerapi-dev.bdy.tech");
+      defaultClient.setAPI_KEY("");
+      defaultClient.setAPI_SECRET("");
+      defaultClient.setBasePath("https://openapi.paypaz.com");
 
     PaypazBrokerOpenApiApi apiInstance = new PaypazBrokerOpenApiApi(defaultClient);
     try {
