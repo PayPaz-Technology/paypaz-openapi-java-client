@@ -41,11 +41,11 @@ public class GetDepositAddressRequestTest {
     }
 
     /**
-     * Test the property 'subUid'
+     * Test the property 'clientSubUserId'
      */
     @Test
-    public void subUidTest() {
-        // TODO: test subUid
+    public void clientSubUserIdTest() {
+        // TODO: test clientSubUserId
     }
 
     /**

@@ -23,12 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 响应信息主体
  */
 @ApiModel(description = "响应信息主体")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class RVoid {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -100,6 +102,7 @@ public class RVoid {
    * @return data
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Object getData() {

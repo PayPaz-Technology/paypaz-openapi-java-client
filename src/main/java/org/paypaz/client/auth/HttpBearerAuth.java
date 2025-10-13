@@ -18,7 +18,7 @@ import org.paypaz.client.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;

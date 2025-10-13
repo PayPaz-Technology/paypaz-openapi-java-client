@@ -23,12 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 企业子用户钱包地址实体类  用于存储和管理子用户的钱包地址信息  对应数据库表：tb_sub_wallet_address
  */
 @ApiModel(description = "企业子用户钱包地址实体类  用于存储和管理子用户的钱包地址信息  对应数据库表：tb_sub_wallet_address")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class SubWalletAddressOpenApiVo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

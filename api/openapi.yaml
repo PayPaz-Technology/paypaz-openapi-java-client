@@ -5,7 +5,7 @@ info:
 servers:
 - url: /
 tags:
-- name: PAYPAZ Broker OpenAPI 文档
+- name: PAYPAZ Broker OpenAPI 控制器
 paths:
   /t-api/broker-openapi/v1/op/openapi/withdrawalOrders:
     post:
@@ -49,19 +49,19 @@ paths:
         根据subUID、地址、订单号查询提币订单
          分页查询指定条件下的提币订单列表
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339048-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033041-run
       x-contentType: application/json
       x-accepts: '*/*'
   /t-api/broker-openapi/v1/op/openapi/depositOrders:
     post:
       deprecated: false
       description: |-
-        根据UID或地址查询充值订单
-         分页查询指定条件下的充值订单列表
+        分页查询充值订单
+         根据条件查询充值订单列表，支持分页、时间范围、币种、钱包地址等筛选条件
       operationId: queryDepositOrders
       parameters: []
       requestBody:
@@ -75,7 +75,7 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RPageDepositOrderOpenApiVo'
-          description: 充值订单分页列表
+          description: 包含充值订单分页数据的响应对象，数据为{@link DepositOrderOpenApiVO DepositOrderOpenApiVO}分页列表
           x-apifox-name: 成功
         "401":
           content:
@@ -95,22 +95,22 @@ paths:
           x-apifox-name: 服务器错误
       security: []
       summary: |-
-        根据UID或地址查询充值订单
-         分页查询指定条件下的充值订单列表
+        分页查询充值订单
+         根据条件查询充值订单列表，支持分页、时间范围、币种、钱包地址等筛选条件
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339049-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033042-run
       x-contentType: application/json
       x-accepts: '*/*'
   /t-api/broker-openapi/v1/op/openapi/depositAddress:
     post:
       deprecated: false
       description: |-
-        根据子用户UID和tokenID获取充值地址
-         为指定子用户和币种获取充值地址，如果不存在则创建新地址
+        获取或创建充值地址
+         为指定子用户和币种获取充值地址，如果该币种地址不存在，则创建新地址
       operationId: getDepositAddress
       parameters: []
       requestBody:
@@ -124,7 +124,7 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RSubWalletAddressOpenApiVo'
-          description: 充值地址信息
+          description: 包含充值地址信息的响应对象，数据为{@link SubWalletAddressOpenApiVO SubWalletAddressOpenApiVO}
           x-apifox-name: 成功
         "401":
           content:
@@ -144,14 +144,14 @@ paths:
           x-apifox-name: 服务器错误
       security: []
       summary: |-
-        根据子用户UID和tokenID获取充值地址
-         为指定子用户和币种获取充值地址，如果不存在则创建新地址
+        获取或创建充值地址
+         为指定子用户和币种获取充值地址，如果该币种地址不存在，则创建新地址
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339050-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033043-run
       x-contentType: application/json
       x-accepts: '*/*'
   /t-api/broker-openapi/v1/op/openapi/createWithdrawal:
@@ -196,55 +196,12 @@ paths:
         根据UID发起提币
          为指定子用户创建提币订单
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339051-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033044-run
       x-contentType: application/json
-      x-accepts: '*/*'
-  /t-api/broker-openapi/v1/op/openapi/createSubUser:
-    post:
-      deprecated: false
-      description: |-
-        创建子用户UID
-         为当前OpenAPI用户创建一个新的子用户
-      operationId: createSubUser
-      parameters: []
-      responses:
-        "200":
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/RLong'
-          description: 用户ID
-          x-apifox-name: 成功
-        "401":
-          content:
-            '*/*':
-              schema:
-                type: string
-          description: Unauthorized
-          x-apifox-name: 没有权限
-        "500":
-          content:
-            '*/*':
-              schema:
-                oneOf:
-                - $ref: '#/components/schemas/RVoid'
-                - type: string
-          description: Internal Server Error
-          x-apifox-name: 服务器错误
-      security: []
-      summary: |-
-        创建子用户UID
-         为当前OpenAPI用户创建一个新的子用户
-      tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
-      x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339052-run
       x-accepts: '*/*'
   /t-api/broker-openapi/v1/op/openapi/withdrawalOrderInfo:
     get:
@@ -291,21 +248,21 @@ paths:
         查询提币订单详情
          根据客户端提币订单ID查询提币订单详细信息
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339053-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033046-run
       x-accepts: '*/*'
   /t-api/broker-openapi/v1/op/openapi/assets:
     get:
       deprecated: false
       description: |-
-        根据tokenId查询该broker下所有资产
+        查询Broker下所有资产信息
          查询当前OpenAPI用户下指定币种或所有币种的资产信息
       operationId: queryBrokerAssets
       parameters:
-      - description: 币种ID
+      - description: 可选参数，币种ID。如果提供，则只返回该币种的资产信息；如果为null，则返回所有币种资产信息
         explode: true
         in: query
         name: tokenId
@@ -319,7 +276,7 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/RListBalanceOpenApiVo'
-          description: broker资产列表
+          description: 包含资产信息的响应对象，数据为{@link BalanceOpenApiVO BalanceOpenApiVO}列表
           x-apifox-name: 成功
         "401":
           content:
@@ -339,14 +296,14 @@ paths:
           x-apifox-name: 服务器错误
       security: []
       summary: |-
-        根据tokenId查询该broker下所有资产
+        查询Broker下所有资产信息
          查询当前OpenAPI用户下指定币种或所有币种的资产信息
       tags:
-      - PAYPAZ Broker OpenAPI 文档
-      - PAYPAZ Broker OpenAPI 文档
-      x-apifox-folder: PAYPAZ Broker OpenAPI 文档
+      - PAYPAZ Broker OpenAPI 控制器
+      - PAYPAZ Broker OpenAPI 控制器
+      x-apifox-folder: PAYPAZ Broker OpenAPI 控制器
       x-apifox-status: released
-      x-run-in-apifox: https://apifox.com/web/project/7097886/apis/api-348339054-run
+      x-run-in-apifox: https://apifox.com/web/project/7176576/apis/api-356033047-run
       x-accepts: '*/*'
 components:
   schemas:
@@ -494,21 +451,27 @@ components:
     DepositOrderOpenApiVo:
       description: 充值订单OpenAPI响应VO
       example:
-        createdAt: createdAt
+        orderNo: orderNo
         quantity: quantity
         tokenId: tokenId
-        chainTokenId: chainTokenId
+        netAmount: netAmount
+        fee: fee
         txId: txId
+        userId: userId
+        createdAt: createdAt
+        chainTokenId: chainTokenId
         fromAddress: fromAddress
         id: id
         walletAddress: walletAddress
         subUserId: subUserId
-        userId: userId
         status: 6
         updatedAt: updatedAt
       properties:
         id:
           description: 充值订单ID
+          type: string
+        orderNo:
+          description: 订单号
           type: string
         tokenId:
           description: 币种ID
@@ -518,6 +481,12 @@ components:
           type: string
         quantity:
           description: 充值数量
+          type: string
+        fee:
+          description: 手续费
+          type: string
+        netAmount:
+          description: 净入账金额
           type: string
         fromAddress:
           description: 来源地址
@@ -547,9 +516,12 @@ components:
       type: object
       x-apifox-orders:
       - id
+      - orderNo
       - tokenId
       - chainTokenId
       - quantity
+      - fee
+      - netAmount
       - fromAddress
       - walletAddress
       - txId
@@ -568,6 +540,7 @@ components:
         arriveQuantity: arriveQuantity
         txId: txId
         userId: userId
+        platformFee: platformFee
         transactionId: transactionId
         arriveTime: arriveTime
         createdAt: createdAt
@@ -601,6 +574,9 @@ components:
         address:
           description: 提现地址 用户的
           type: string
+        platformFee:
+          description: 手续费
+          type: string
         arriveQuantity:
           description: 实际提币数量
           type: string
@@ -633,6 +609,7 @@ components:
       - userId
       - subUserId
       - address
+      - platformFee
       - arriveQuantity
       - statusInfo
       - createdAt
@@ -705,9 +682,13 @@ components:
         startTime: startTime
         subUid: subUid
         endTime: endTime
+        clientSubUserId: clientSubUserId
       properties:
         subUid:
           description: 子用户ID
+          type: string
+        clientSubUserId:
+          description: 客户子用户唯一标识
           type: string
         address:
           description: 提币地址
@@ -737,11 +718,10 @@ components:
           maximum: 100
           minimum: 1
           type: integer
-      required:
-      - subUid
       type: object
       x-apifox-orders:
       - subUid
+      - clientSubUserId
       - address
       - clientWithdrawalId
       - tokenId
@@ -750,27 +730,6 @@ components:
       - endTime
       - pageNo
       - pageSize
-      x-apifox-ignore-properties: []
-      x-apifox-folder: Schemas
-    RLong:
-      description: 响应信息主体
-      example:
-        msg: msg
-        code: 0
-        data: data
-      properties:
-        code:
-          format: int32
-          type: integer
-        msg:
-          type: string
-        data:
-          type: string
-      type: object
-      x-apifox-orders:
-      - code
-      - msg
-      - data
       x-apifox-ignore-properties: []
       x-apifox-folder: Schemas
     RWithdrawalOrderOpenApiVo:
@@ -785,6 +744,7 @@ components:
           arriveQuantity: arriveQuantity
           txId: txId
           userId: userId
+          platformFee: platformFee
           transactionId: transactionId
           arriveTime: arriveTime
           createdAt: createdAt
@@ -821,6 +781,7 @@ components:
           arriveQuantity: arriveQuantity
           txId: txId
           userId: userId
+          platformFee: platformFee
           transactionId: transactionId
           arriveTime: arriveTime
           createdAt: createdAt
@@ -836,6 +797,7 @@ components:
           arriveQuantity: arriveQuantity
           txId: txId
           userId: userId
+          platformFee: platformFee
           transactionId: transactionId
           arriveTime: arriveTime
           createdAt: createdAt
@@ -895,14 +857,14 @@ components:
               type: boolean
             asyncCount:
               type: boolean
+            chain:
+              properties: {}
+              type: object
             result:
               items:
                 properties: {}
                 type: object
               type: array
-            chain:
-              properties: {}
-              type: object
             empty:
               type: boolean
             first:
@@ -925,11 +887,14 @@ components:
         amount: amount
         address: address
         tokenId: tokenId
+        twoFactorAuthentication: true
         clientWithdrawalId: clientWithdrawalId
-        subUid: subUid
+        clientSubUserId: clientSubUserId
       properties:
-        subUid:
-          description: 子用户ID
+        clientSubUserId:
+          description: 客户子用户唯一标识
+          maxLength: 64
+          minLength: 1
           type: string
         tokenId:
           description: 币种ID
@@ -945,19 +910,24 @@ components:
           maxLength: 64
           minLength: 16
           type: string
+        twoFactorAuthentication:
+          description: 'Two-factor authentication (2FA) confirmed '
+          type: boolean
       required:
       - address
       - amount
+      - clientSubUserId
       - clientWithdrawalId
-      - subUid
       - tokenId
+      - twoFactorAuthentication
       type: object
       x-apifox-orders:
-      - subUid
+      - clientSubUserId
       - tokenId
       - address
       - amount
       - clientWithdrawalId
+      - twoFactorAuthentication
       x-apifox-ignore-properties: []
       x-apifox-folder: Schemas
     RSubWalletAddressOpenApiVo:
@@ -1013,20 +983,22 @@ components:
       description: 获取子用户充值地址请求DTO
       example:
         tokenId: tokenId
-        subUid: subUid
+        clientSubUserId: clientSubUserId
       properties:
-        subUid:
-          description: 子用户ID
+        clientSubUserId:
+          description: 客户子用户唯一标识
+          maxLength: 64
+          minLength: 1
           type: string
         tokenId:
           description: 币种ID
           type: string
       required:
-      - subUid
+      - clientSubUserId
       - tokenId
       type: object
       x-apifox-orders:
-      - subUid
+      - clientSubUserId
       - tokenId
       x-apifox-ignore-properties: []
       x-apifox-folder: Schemas
@@ -1036,28 +1008,34 @@ components:
         msg: msg
         code: 0
         data:
-        - createdAt: createdAt
+        - orderNo: orderNo
           quantity: quantity
           tokenId: tokenId
-          chainTokenId: chainTokenId
+          netAmount: netAmount
+          fee: fee
           txId: txId
+          userId: userId
+          createdAt: createdAt
+          chainTokenId: chainTokenId
           fromAddress: fromAddress
           id: id
           walletAddress: walletAddress
           subUserId: subUserId
-          userId: userId
           status: 6
           updatedAt: updatedAt
-        - createdAt: createdAt
+        - orderNo: orderNo
           quantity: quantity
           tokenId: tokenId
-          chainTokenId: chainTokenId
+          netAmount: netAmount
+          fee: fee
           txId: txId
+          userId: userId
+          createdAt: createdAt
+          chainTokenId: chainTokenId
           fromAddress: fromAddress
           id: id
           walletAddress: walletAddress
           subUserId: subUserId
-          userId: userId
           status: 6
           updatedAt: updatedAt
       properties:
@@ -1110,14 +1088,14 @@ components:
               type: boolean
             asyncCount:
               type: boolean
+            chain:
+              properties: {}
+              type: object
             result:
               items:
                 properties: {}
                 type: object
               type: array
-            chain:
-              properties: {}
-              type: object
             empty:
               type: boolean
             first:
@@ -1137,19 +1115,28 @@ components:
     QueryDepositOrderRequest:
       description: 查询充值订单请求DTO
       example:
+        orderNo: orderNo
         tokenId: tokenId
         pageNo: 0
         pageSize: 60
         startTime: startTime
+        validSubUserIdentifier: true
         subUid: subUid
         endTime: endTime
+        clientSubUserId: clientSubUserId
         walletAddress: walletAddress
       properties:
         subUid:
           description: 子用户ID
           type: string
+        clientSubUserId:
+          description: 客户子用户唯一标识
+          type: string
         walletAddress:
           description: 钱包地址
+          type: string
+        orderNo:
+          description: 订单号
           type: string
         tokenId:
           description: 币种ID
@@ -1170,17 +1157,20 @@ components:
           maximum: 100
           minimum: 1
           type: integer
-      required:
-      - subUid
+        validSubUserIdentifier:
+          type: boolean
       type: object
       x-apifox-orders:
       - subUid
+      - clientSubUserId
       - walletAddress
+      - orderNo
       - tokenId
       - startTime
       - endTime
       - pageNo
       - pageSize
+      - validSubUserIdentifier
       x-apifox-ignore-properties: []
       x-apifox-folder: Schemas
   securitySchemes: {}

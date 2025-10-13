@@ -13,7 +13,7 @@
 
 package org.paypaz.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

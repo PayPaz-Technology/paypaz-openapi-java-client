@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **userId** | **String** |  |  [optional]
 **subUserId** | **String** | 企业-子用户id |  [optional]
 **address** | **String** | 提现地址 用户的 |  [optional]
+**platformFee** | **String** | 手续费 |  [optional]
 **arriveQuantity** | **String** | 实际提币数量 |  [optional]
 **statusInfo** | **Integer** | 1,提币处理  2，提币成功， 3，提币失败 |  [optional]
 **createdAt** | **String** | 创建时间 |  [optional]

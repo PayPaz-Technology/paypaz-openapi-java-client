@@ -49,6 +49,14 @@ public class DepositOrderOpenApiVoTest {
     }
 
     /**
+     * Test the property 'orderNo'
+     */
+    @Test
+    public void orderNoTest() {
+        // TODO: test orderNo
+    }
+
+    /**
      * Test the property 'tokenId'
      */
     @Test
@@ -70,6 +78,22 @@ public class DepositOrderOpenApiVoTest {
     @Test
     public void quantityTest() {
         // TODO: test quantity
+    }
+
+    /**
+     * Test the property 'fee'
+     */
+    @Test
+    public void feeTest() {
+        // TODO: test fee
+    }
+
+    /**
+     * Test the property 'netAmount'
+     */
+    @Test
+    public void netAmountTest() {
+        // TODO: test netAmount
     }
 
     /**

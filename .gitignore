@@ -23,3 +23,9 @@
 hs_err_pid*
 replay_pid*
 !/.idea/
+/.openapi-generator-ignore
+/.travis.yml
+/.openapi-generator/
+/.idea/
+/gradle/wrapper/
+/target/

@@ -49,6 +49,14 @@ public class QueryWithdrawalOrderRequestTest {
     }
 
     /**
+     * Test the property 'clientSubUserId'
+     */
+    @Test
+    public void clientSubUserIdTest() {
+        // TODO: test clientSubUserId
+    }
+
+    /**
      * Test the property 'address'
      */
     @Test

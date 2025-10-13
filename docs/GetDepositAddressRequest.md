@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subUid** | **String** | 子用户ID | 
+**clientSubUserId** | **String** | 客户子用户唯一标识 | 
 **tokenId** | **String** | 币种ID | 
 
 

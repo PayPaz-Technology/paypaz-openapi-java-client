@@ -7,7 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subUid** | **String** | 子用户ID | 
+**subUid** | **String** | 子用户ID |  [optional]
+**clientSubUserId** | **String** | 客户子用户唯一标识 |  [optional]
 **address** | **String** | 提币地址 |  [optional]
 **clientWithdrawalId** | **String** | 客户端提币订单ID |  [optional]
 **tokenId** | **String** | 币种ID |  [optional]

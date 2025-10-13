@@ -105,6 +105,14 @@ public class WithdrawalOrderOpenApiVoTest {
     }
 
     /**
+     * Test the property 'platformFee'
+     */
+    @Test
+    public void platformFeeTest() {
+        // TODO: test platformFee
+    }
+
+    /**
      * Test the property 'arriveQuantity'
      */
     @Test

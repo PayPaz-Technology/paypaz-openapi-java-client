@@ -49,11 +49,27 @@ public class QueryDepositOrderRequestTest {
     }
 
     /**
+     * Test the property 'clientSubUserId'
+     */
+    @Test
+    public void clientSubUserIdTest() {
+        // TODO: test clientSubUserId
+    }
+
+    /**
      * Test the property 'walletAddress'
      */
     @Test
     public void walletAddressTest() {
         // TODO: test walletAddress
+    }
+
+    /**
+     * Test the property 'orderNo'
+     */
+    @Test
+    public void orderNoTest() {
+        // TODO: test orderNo
     }
 
     /**
@@ -94,6 +110,14 @@ public class QueryDepositOrderRequestTest {
     @Test
     public void pageSizeTest() {
         // TODO: test pageSize
+    }
+
+    /**
+     * Test the property 'validSubUserIdentifier'
+     */
+    @Test
+    public void validSubUserIdentifierTest() {
+        // TODO: test validSubUserIdentifier
     }
 
 }

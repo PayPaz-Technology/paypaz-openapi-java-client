@@ -41,11 +41,11 @@ public class CreateWithdrawalRequestTest {
     }
 
     /**
-     * Test the property 'subUid'
+     * Test the property 'clientSubUserId'
      */
     @Test
-    public void subUidTest() {
-        // TODO: test subUid
+    public void clientSubUserIdTest() {
+        // TODO: test clientSubUserId
     }
 
     /**
@@ -78,6 +78,14 @@ public class CreateWithdrawalRequestTest {
     @Test
     public void clientWithdrawalIdTest() {
         // TODO: test clientWithdrawalId
+    }
+
+    /**
+     * Test the property 'twoFactorAuthentication'
+     */
+    @Test
+    public void twoFactorAuthenticationTest() {
+        // TODO: test twoFactorAuthentication
     }
 
 }

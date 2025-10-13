@@ -8,9 +8,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | 充值订单ID |  [optional]
+**orderNo** | **String** | 订单号 |  [optional]
 **tokenId** | **String** | 币种ID |  [optional]
 **chainTokenId** | **String** | 链上币种ID |  [optional]
 **quantity** | **String** | 充值数量 |  [optional]
+**fee** | **String** | 手续费 |  [optional]
+**netAmount** | **String** | 净入账金额 |  [optional]
 **fromAddress** | **String** | 来源地址 |  [optional]
 **walletAddress** | **String** | 钱包地址 |  [optional]
 **txId** | **String** | 交易ID（区块链交易哈希） |  [optional]

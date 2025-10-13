@@ -13,33 +13,34 @@
 
 package org.paypaz.client.api;
 
-import org.paypaz.client.ApiException;
-import org.paypaz.client.model.CreateWithdrawalRequest;
-import org.paypaz.client.model.GetDepositAddressRequest;
-import org.paypaz.client.model.QueryDepositOrderRequest;
-import org.paypaz.client.model.QueryWithdrawalOrderRequest;
-import org.paypaz.client.model.RListBalanceOpenApiVo;
-import org.paypaz.client.model.RPageDepositOrderOpenApiVo;
-import org.paypaz.client.model.RPageWithdrawalOrderOpenApiVo;
-import org.paypaz.client.model.RSubWalletAddressOpenApiVo;
-import org.paypaz.client.model.RWithdrawalOrderOpenApiVo;
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
+import org.paypaz.client.ApiClient;
+import org.paypaz.client.ApiException;
+import org.paypaz.client.model.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.UUID;
 
 /**
  * API tests for PaypazBrokerOpenApiApi
  */
 @Ignore
-public class PaypazBrokerOpenApiApiTest {
+public class PaypazBrokerOpenApiApiDevTest {
+
+    private static  final PaypazBrokerOpenApiApi api;
+
+    static {
+        ApiClient localVarApiClient = new ApiClient();
+        localVarApiClient.setBasePath("https://brokerapi-dev.bdy.tech");
+        localVarApiClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
+        localVarApiClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
+        api = new PaypazBrokerOpenApiApi(localVarApiClient);
+    }
 
 
 
-    private final PaypazBrokerOpenApiApi api = new PaypazBrokerOpenApiApi();
+
 
     
     /**
@@ -52,27 +53,21 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void createWithdrawalTest() throws ApiException {
-        CreateWithdrawalRequest createWithdrawalRequest = null;
-        RWithdrawalOrderOpenApiVo response = api.createWithdrawal(createWithdrawalRequest);
+        CreateWithdrawalRequest createWithdrawalRequest = new CreateWithdrawalRequest();
+        String clientOrderId = UUID.randomUUID().toString().replace("-", "");
+        createWithdrawalRequest.setClientWithdrawalId(clientOrderId);
+        createWithdrawalRequest.setAddress("0x2c90a96735d851c6728fb6949264b88198b5dc6c");
+        createWithdrawalRequest.setAmount("0.0001");
+        createWithdrawalRequest.setTokenId("TBSC_BNB");
+        createWithdrawalRequest.setClientSubUserId("121212321");
+        createWithdrawalRequest.setTwoFactorAuthentication(Boolean.TRUE);
 
+        RWithdrawalOrderOpenApiVo response = api.createWithdrawal(createWithdrawalRequest);
+        System.out.println(response.toString());
         // TODO: test validations
     }
     
-    /**
-     * 根据UID发起提币  为指定子用户创建提币订单
-     *
-     * 根据UID发起提币  为指定子用户创建提币订单
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createWithdrawal_0Test() throws ApiException {
-        CreateWithdrawalRequest createWithdrawalRequest = null;
-        RWithdrawalOrderOpenApiVo response = api.createWithdrawal_0(createWithdrawalRequest);
 
-        // TODO: test validations
-    }
     
     /**
      * 获取或创建充值地址  
@@ -84,28 +79,17 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void getDepositAddressTest() throws ApiException {
-        GetDepositAddressRequest getDepositAddressRequest = null;
+        GetDepositAddressRequest getDepositAddressRequest = new GetDepositAddressRequest();
+        getDepositAddressRequest.setClientSubUserId("111111123");
+        getDepositAddressRequest.setTokenId("BTC");
         RSubWalletAddressOpenApiVo response = api.getDepositAddress(getDepositAddressRequest);
 
-        // TODO: test validations
-    }
-    
-    /**
-     * 获取或创建充值地址  
-     *
-     * 获取或创建充值地址  &lt;p&gt;为指定子用户和币种获取充值地址，如果该币种地址不存在，则创建新地址&lt;/p&gt;
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getDepositAddress_0Test() throws ApiException {
-        GetDepositAddressRequest getDepositAddressRequest = null;
-        RSubWalletAddressOpenApiVo response = api.getDepositAddress_0(getDepositAddressRequest);
+        System.out.println(response.toString());
 
         // TODO: test validations
     }
     
+
     /**
      * 查询Broker下所有资产信息  
      *
@@ -116,8 +100,9 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void queryBrokerAssetsTest() throws ApiException {
-        String tokenId = null;
+        String tokenId = "TBSC_BNB";
         RListBalanceOpenApiVo response = api.queryBrokerAssets(tokenId);
+        System.out.println(response.toString());
 
         // TODO: test validations
     }
@@ -134,7 +119,7 @@ public class PaypazBrokerOpenApiApiTest {
     public void queryBrokerAssets_0Test() throws ApiException {
         String tokenId = null;
         RListBalanceOpenApiVo response = api.queryBrokerAssets_0(tokenId);
-
+        System.out.println(response.toString());
         // TODO: test validations
     }
     
@@ -148,8 +133,10 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void queryDepositOrdersTest() throws ApiException {
-        QueryDepositOrderRequest queryDepositOrderRequest = null;
+        QueryDepositOrderRequest queryDepositOrderRequest = new QueryDepositOrderRequest();
+        queryDepositOrderRequest.setClientSubUserId("121212321");
         RPageDepositOrderOpenApiVo response = api.queryDepositOrders(queryDepositOrderRequest);
+        System.out.println(response.toString());
 
         // TODO: test validations
     }
@@ -180,8 +167,10 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void queryWithdrawalOrdersTest() throws ApiException {
-        QueryWithdrawalOrderRequest queryWithdrawalOrderRequest = null;
+        QueryWithdrawalOrderRequest queryWithdrawalOrderRequest = new QueryWithdrawalOrderRequest();
+        queryWithdrawalOrderRequest.setClientSubUserId("121212321");
         RPageWithdrawalOrderOpenApiVo response = api.queryWithdrawalOrders(queryWithdrawalOrderRequest);
+        System.out.println(response.toString());
 
         // TODO: test validations
     }
@@ -196,9 +185,10 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void queryWithdrawalOrders_0Test() throws ApiException {
-        QueryWithdrawalOrderRequest queryWithdrawalOrderRequest = null;
+        QueryWithdrawalOrderRequest queryWithdrawalOrderRequest = new QueryWithdrawalOrderRequest() ;
+        queryWithdrawalOrderRequest.setClientSubUserId("121212321");
         RPageWithdrawalOrderOpenApiVo response = api.queryWithdrawalOrders_0(queryWithdrawalOrderRequest);
-
+        System.out.println(response.toString());
         // TODO: test validations
     }
     
@@ -212,26 +202,12 @@ public class PaypazBrokerOpenApiApiTest {
      */
     @Test
     public void withdrawalOrderInfoTest() throws ApiException {
-        String clientWithdrawalId = null;
+        String clientWithdrawalId = "1121212";
         RWithdrawalOrderOpenApiVo response = api.withdrawalOrderInfo(clientWithdrawalId);
-
+        System.out.println(response.toString());
         // TODO: test validations
     }
     
-    /**
-     * 查询提币订单详情  根据客户端提币订单ID查询提币订单详细信息
-     *
-     * 查询提币订单详情  根据客户端提币订单ID查询提币订单详细信息
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void withdrawalOrderInfo_0Test() throws ApiException {
-        String clientWithdrawalId = null;
-        RWithdrawalOrderOpenApiVo response = api.withdrawalOrderInfo_0(clientWithdrawalId);
 
-        // TODO: test validations
-    }
     
 }

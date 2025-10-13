@@ -23,16 +23,22 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 查询提币订单请求DTO
  */
 @ApiModel(description = "查询提币订单请求DTO")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class QueryWithdrawalOrderRequest {
   public static final String SERIALIZED_NAME_SUB_UID = "subUid";
   @SerializedName(SERIALIZED_NAME_SUB_UID)
   private String subUid;
+
+  public static final String SERIALIZED_NAME_CLIENT_SUB_USER_ID = "clientSubUserId";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SUB_USER_ID)
+  private String clientSubUserId;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
@@ -77,7 +83,8 @@ public class QueryWithdrawalOrderRequest {
    * 子用户ID
    * @return subUid
   **/
-  @ApiModelProperty(required = true, value = "子用户ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "子用户ID")
 
   public String getSubUid() {
     return subUid;
@@ -86,6 +93,29 @@ public class QueryWithdrawalOrderRequest {
 
   public void setSubUid(String subUid) {
     this.subUid = subUid;
+  }
+
+
+  public QueryWithdrawalOrderRequest clientSubUserId(String clientSubUserId) {
+    
+    this.clientSubUserId = clientSubUserId;
+    return this;
+  }
+
+   /**
+   * 客户子用户唯一标识
+   * @return clientSubUserId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "客户子用户唯一标识")
+
+  public String getClientSubUserId() {
+    return clientSubUserId;
+  }
+
+
+  public void setClientSubUserId(String clientSubUserId) {
+    this.clientSubUserId = clientSubUserId;
   }
 
 
@@ -263,7 +293,7 @@ public class QueryWithdrawalOrderRequest {
    * @return pageSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "每页大小，范围1-100")
+ @Min(1) @Max(100)  @ApiModelProperty(value = "每页大小，范围1-100")
 
   public Integer getPageSize() {
     return pageSize;
@@ -285,6 +315,7 @@ public class QueryWithdrawalOrderRequest {
     }
     QueryWithdrawalOrderRequest queryWithdrawalOrderRequest = (QueryWithdrawalOrderRequest) o;
     return Objects.equals(this.subUid, queryWithdrawalOrderRequest.subUid) &&
+        Objects.equals(this.clientSubUserId, queryWithdrawalOrderRequest.clientSubUserId) &&
         Objects.equals(this.address, queryWithdrawalOrderRequest.address) &&
         Objects.equals(this.clientWithdrawalId, queryWithdrawalOrderRequest.clientWithdrawalId) &&
         Objects.equals(this.tokenId, queryWithdrawalOrderRequest.tokenId) &&
@@ -297,7 +328,7 @@ public class QueryWithdrawalOrderRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subUid, address, clientWithdrawalId, tokenId, txId, startTime, endTime, pageNo, pageSize);
+    return Objects.hash(subUid, clientSubUserId, address, clientWithdrawalId, tokenId, txId, startTime, endTime, pageNo, pageSize);
   }
 
 
@@ -306,6 +337,7 @@ public class QueryWithdrawalOrderRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryWithdrawalOrderRequest {\n");
     sb.append("    subUid: ").append(toIndentedString(subUid)).append("\n");
+    sb.append("    clientSubUserId: ").append(toIndentedString(clientSubUserId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    clientWithdrawalId: ").append(toIndentedString(clientWithdrawalId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");

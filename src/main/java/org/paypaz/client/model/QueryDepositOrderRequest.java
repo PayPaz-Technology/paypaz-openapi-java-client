@@ -23,20 +23,30 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 查询充值订单请求DTO
  */
 @ApiModel(description = "查询充值订单请求DTO")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class QueryDepositOrderRequest {
   public static final String SERIALIZED_NAME_SUB_UID = "subUid";
   @SerializedName(SERIALIZED_NAME_SUB_UID)
   private String subUid;
 
+  public static final String SERIALIZED_NAME_CLIENT_SUB_USER_ID = "clientSubUserId";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SUB_USER_ID)
+  private String clientSubUserId;
+
   public static final String SERIALIZED_NAME_WALLET_ADDRESS = "walletAddress";
   @SerializedName(SERIALIZED_NAME_WALLET_ADDRESS)
   private String walletAddress;
+
+  public static final String SERIALIZED_NAME_ORDER_NO = "orderNo";
+  @SerializedName(SERIALIZED_NAME_ORDER_NO)
+  private String orderNo;
 
   public static final String SERIALIZED_NAME_TOKEN_ID = "tokenId";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
@@ -58,6 +68,10 @@ public class QueryDepositOrderRequest {
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   private Integer pageSize;
 
+  public static final String SERIALIZED_NAME_VALID_SUB_USER_IDENTIFIER = "validSubUserIdentifier";
+  @SerializedName(SERIALIZED_NAME_VALID_SUB_USER_IDENTIFIER)
+  private Boolean validSubUserIdentifier;
+
 
   public QueryDepositOrderRequest subUid(String subUid) {
     
@@ -69,7 +83,8 @@ public class QueryDepositOrderRequest {
    * 子用户ID
    * @return subUid
   **/
-  @ApiModelProperty(required = true, value = "子用户ID")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "子用户ID")
 
   public String getSubUid() {
     return subUid;
@@ -78,6 +93,29 @@ public class QueryDepositOrderRequest {
 
   public void setSubUid(String subUid) {
     this.subUid = subUid;
+  }
+
+
+  public QueryDepositOrderRequest clientSubUserId(String clientSubUserId) {
+    
+    this.clientSubUserId = clientSubUserId;
+    return this;
+  }
+
+   /**
+   * 客户子用户唯一标识
+   * @return clientSubUserId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "客户子用户唯一标识")
+
+  public String getClientSubUserId() {
+    return clientSubUserId;
+  }
+
+
+  public void setClientSubUserId(String clientSubUserId) {
+    this.clientSubUserId = clientSubUserId;
   }
 
 
@@ -101,6 +139,29 @@ public class QueryDepositOrderRequest {
 
   public void setWalletAddress(String walletAddress) {
     this.walletAddress = walletAddress;
+  }
+
+
+  public QueryDepositOrderRequest orderNo(String orderNo) {
+    
+    this.orderNo = orderNo;
+    return this;
+  }
+
+   /**
+   * 订单号
+   * @return orderNo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "订单号")
+
+  public String getOrderNo() {
+    return orderNo;
+  }
+
+
+  public void setOrderNo(String orderNo) {
+    this.orderNo = orderNo;
   }
 
 
@@ -209,7 +270,7 @@ public class QueryDepositOrderRequest {
    * @return pageSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "每页大小，范围1-100")
+ @Min(1) @Max(100)  @ApiModelProperty(value = "每页大小，范围1-100")
 
   public Integer getPageSize() {
     return pageSize;
@@ -218,6 +279,29 @@ public class QueryDepositOrderRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+
+  public QueryDepositOrderRequest validSubUserIdentifier(Boolean validSubUserIdentifier) {
+    
+    this.validSubUserIdentifier = validSubUserIdentifier;
+    return this;
+  }
+
+   /**
+   * Get validSubUserIdentifier
+   * @return validSubUserIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getValidSubUserIdentifier() {
+    return validSubUserIdentifier;
+  }
+
+
+  public void setValidSubUserIdentifier(Boolean validSubUserIdentifier) {
+    this.validSubUserIdentifier = validSubUserIdentifier;
   }
 
 
@@ -231,17 +315,20 @@ public class QueryDepositOrderRequest {
     }
     QueryDepositOrderRequest queryDepositOrderRequest = (QueryDepositOrderRequest) o;
     return Objects.equals(this.subUid, queryDepositOrderRequest.subUid) &&
+        Objects.equals(this.clientSubUserId, queryDepositOrderRequest.clientSubUserId) &&
         Objects.equals(this.walletAddress, queryDepositOrderRequest.walletAddress) &&
+        Objects.equals(this.orderNo, queryDepositOrderRequest.orderNo) &&
         Objects.equals(this.tokenId, queryDepositOrderRequest.tokenId) &&
         Objects.equals(this.startTime, queryDepositOrderRequest.startTime) &&
         Objects.equals(this.endTime, queryDepositOrderRequest.endTime) &&
         Objects.equals(this.pageNo, queryDepositOrderRequest.pageNo) &&
-        Objects.equals(this.pageSize, queryDepositOrderRequest.pageSize);
+        Objects.equals(this.pageSize, queryDepositOrderRequest.pageSize) &&
+        Objects.equals(this.validSubUserIdentifier, queryDepositOrderRequest.validSubUserIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subUid, walletAddress, tokenId, startTime, endTime, pageNo, pageSize);
+    return Objects.hash(subUid, clientSubUserId, walletAddress, orderNo, tokenId, startTime, endTime, pageNo, pageSize, validSubUserIdentifier);
   }
 
 
@@ -250,12 +337,15 @@ public class QueryDepositOrderRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryDepositOrderRequest {\n");
     sb.append("    subUid: ").append(toIndentedString(subUid)).append("\n");
+    sb.append("    clientSubUserId: ").append(toIndentedString(clientSubUserId)).append("\n");
     sb.append("    walletAddress: ").append(toIndentedString(walletAddress)).append("\n");
+    sb.append("    orderNo: ").append(toIndentedString(orderNo)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    pageNo: ").append(toIndentedString(pageNo)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    validSubUserIdentifier: ").append(toIndentedString(validSubUserIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

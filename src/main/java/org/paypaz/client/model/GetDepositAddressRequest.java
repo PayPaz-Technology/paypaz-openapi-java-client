@@ -23,41 +23,44 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 获取子用户充值地址请求DTO
  */
 @ApiModel(description = "获取子用户充值地址请求DTO")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class GetDepositAddressRequest {
-  public static final String SERIALIZED_NAME_SUB_UID = "subUid";
-  @SerializedName(SERIALIZED_NAME_SUB_UID)
-  private String subUid;
+  public static final String SERIALIZED_NAME_CLIENT_SUB_USER_ID = "clientSubUserId";
+  @SerializedName(SERIALIZED_NAME_CLIENT_SUB_USER_ID)
+  private String clientSubUserId;
 
   public static final String SERIALIZED_NAME_TOKEN_ID = "tokenId";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
   private String tokenId;
 
 
-  public GetDepositAddressRequest subUid(String subUid) {
+  public GetDepositAddressRequest clientSubUserId(String clientSubUserId) {
     
-    this.subUid = subUid;
+    this.clientSubUserId = clientSubUserId;
     return this;
   }
 
    /**
-   * 子用户ID
-   * @return subUid
+   * 客户子用户唯一标识
+   * @return clientSubUserId
   **/
-  @ApiModelProperty(required = true, value = "子用户ID")
+  @NotNull
+ @Size(min=1,max=64)  @ApiModelProperty(required = true, value = "客户子用户唯一标识")
 
-  public String getSubUid() {
-    return subUid;
+  public String getClientSubUserId() {
+    return clientSubUserId;
   }
 
 
-  public void setSubUid(String subUid) {
-    this.subUid = subUid;
+  public void setClientSubUserId(String clientSubUserId) {
+    this.clientSubUserId = clientSubUserId;
   }
 
 
@@ -71,6 +74,7 @@ public class GetDepositAddressRequest {
    * 币种ID
    * @return tokenId
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "币种ID")
 
   public String getTokenId() {
@@ -92,13 +96,13 @@ public class GetDepositAddressRequest {
       return false;
     }
     GetDepositAddressRequest getDepositAddressRequest = (GetDepositAddressRequest) o;
-    return Objects.equals(this.subUid, getDepositAddressRequest.subUid) &&
+    return Objects.equals(this.clientSubUserId, getDepositAddressRequest.clientSubUserId) &&
         Objects.equals(this.tokenId, getDepositAddressRequest.tokenId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subUid, tokenId);
+    return Objects.hash(clientSubUserId, tokenId);
   }
 
 
@@ -106,7 +110,7 @@ public class GetDepositAddressRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDepositAddressRequest {\n");
-    sb.append("    subUid: ").append(toIndentedString(subUid)).append("\n");
+    sb.append("    clientSubUserId: ").append(toIndentedString(clientSubUserId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("}");
     return sb.toString();

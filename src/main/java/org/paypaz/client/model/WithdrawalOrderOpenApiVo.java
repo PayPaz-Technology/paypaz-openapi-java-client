@@ -23,11 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * WithdrawalOrderOpenApiVo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class WithdrawalOrderOpenApiVo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,6 +62,10 @@ public class WithdrawalOrderOpenApiVo {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
+
+  public static final String SERIALIZED_NAME_PLATFORM_FEE = "platformFee";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_FEE)
+  private String platformFee;
 
   public static final String SERIALIZED_NAME_ARRIVE_QUANTITY = "arriveQuantity";
   @SerializedName(SERIALIZED_NAME_ARRIVE_QUANTITY)
@@ -274,6 +280,29 @@ public class WithdrawalOrderOpenApiVo {
   }
 
 
+  public WithdrawalOrderOpenApiVo platformFee(String platformFee) {
+    
+    this.platformFee = platformFee;
+    return this;
+  }
+
+   /**
+   * 手续费
+   * @return platformFee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "手续费")
+
+  public String getPlatformFee() {
+    return platformFee;
+  }
+
+
+  public void setPlatformFee(String platformFee) {
+    this.platformFee = platformFee;
+  }
+
+
   public WithdrawalOrderOpenApiVo arriveQuantity(String arriveQuantity) {
     
     this.arriveQuantity = arriveQuantity;
@@ -452,6 +481,7 @@ public class WithdrawalOrderOpenApiVo {
         Objects.equals(this.userId, withdrawalOrderOpenApiVo.userId) &&
         Objects.equals(this.subUserId, withdrawalOrderOpenApiVo.subUserId) &&
         Objects.equals(this.address, withdrawalOrderOpenApiVo.address) &&
+        Objects.equals(this.platformFee, withdrawalOrderOpenApiVo.platformFee) &&
         Objects.equals(this.arriveQuantity, withdrawalOrderOpenApiVo.arriveQuantity) &&
         Objects.equals(this.statusInfo, withdrawalOrderOpenApiVo.statusInfo) &&
         Objects.equals(this.createdAt, withdrawalOrderOpenApiVo.createdAt) &&
@@ -463,7 +493,7 @@ public class WithdrawalOrderOpenApiVo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, clientWithdrawalId, transactionId, tokenId, chainTokenId, userId, subUserId, address, arriveQuantity, statusInfo, createdAt, updatedAt, arriveTime, totalQuantity, txId);
+    return Objects.hash(id, clientWithdrawalId, transactionId, tokenId, chainTokenId, userId, subUserId, address, platformFee, arriveQuantity, statusInfo, createdAt, updatedAt, arriveTime, totalQuantity, txId);
   }
 
 
@@ -479,6 +509,7 @@ public class WithdrawalOrderOpenApiVo {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    subUserId: ").append(toIndentedString(subUserId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    platformFee: ").append(toIndentedString(platformFee)).append("\n");
     sb.append("    arriveQuantity: ").append(toIndentedString(arriveQuantity)).append("\n");
     sb.append("    statusInfo: ").append(toIndentedString(statusInfo)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

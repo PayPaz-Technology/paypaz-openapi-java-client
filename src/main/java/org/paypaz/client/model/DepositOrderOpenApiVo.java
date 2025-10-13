@@ -23,16 +23,22 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 /**
  * 充值订单OpenAPI响应VO
  */
 @ApiModel(description = "充值订单OpenAPI响应VO")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-10T15:36:39.334120+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-13T11:09:51.307434+08:00[Asia/Shanghai]")
 public class DepositOrderOpenApiVo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_ORDER_NO = "orderNo";
+  @SerializedName(SERIALIZED_NAME_ORDER_NO)
+  private String orderNo;
 
   public static final String SERIALIZED_NAME_TOKEN_ID = "tokenId";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
@@ -45,6 +51,14 @@ public class DepositOrderOpenApiVo {
   public static final String SERIALIZED_NAME_QUANTITY = "quantity";
   @SerializedName(SERIALIZED_NAME_QUANTITY)
   private String quantity;
+
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private String fee;
+
+  public static final String SERIALIZED_NAME_NET_AMOUNT = "netAmount";
+  @SerializedName(SERIALIZED_NAME_NET_AMOUNT)
+  private String netAmount;
 
   public static final String SERIALIZED_NAME_FROM_ADDRESS = "fromAddress";
   @SerializedName(SERIALIZED_NAME_FROM_ADDRESS)
@@ -99,6 +113,29 @@ public class DepositOrderOpenApiVo {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public DepositOrderOpenApiVo orderNo(String orderNo) {
+    
+    this.orderNo = orderNo;
+    return this;
+  }
+
+   /**
+   * 订单号
+   * @return orderNo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "订单号")
+
+  public String getOrderNo() {
+    return orderNo;
+  }
+
+
+  public void setOrderNo(String orderNo) {
+    this.orderNo = orderNo;
   }
 
 
@@ -168,6 +205,52 @@ public class DepositOrderOpenApiVo {
 
   public void setQuantity(String quantity) {
     this.quantity = quantity;
+  }
+
+
+  public DepositOrderOpenApiVo fee(String fee) {
+    
+    this.fee = fee;
+    return this;
+  }
+
+   /**
+   * 手续费
+   * @return fee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "手续费")
+
+  public String getFee() {
+    return fee;
+  }
+
+
+  public void setFee(String fee) {
+    this.fee = fee;
+  }
+
+
+  public DepositOrderOpenApiVo netAmount(String netAmount) {
+    
+    this.netAmount = netAmount;
+    return this;
+  }
+
+   /**
+   * 净入账金额
+   * @return netAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "净入账金额")
+
+  public String getNetAmount() {
+    return netAmount;
+  }
+
+
+  public void setNetAmount(String netAmount) {
+    this.netAmount = netAmount;
   }
 
 
@@ -365,9 +448,12 @@ public class DepositOrderOpenApiVo {
     }
     DepositOrderOpenApiVo depositOrderOpenApiVo = (DepositOrderOpenApiVo) o;
     return Objects.equals(this.id, depositOrderOpenApiVo.id) &&
+        Objects.equals(this.orderNo, depositOrderOpenApiVo.orderNo) &&
         Objects.equals(this.tokenId, depositOrderOpenApiVo.tokenId) &&
         Objects.equals(this.chainTokenId, depositOrderOpenApiVo.chainTokenId) &&
         Objects.equals(this.quantity, depositOrderOpenApiVo.quantity) &&
+        Objects.equals(this.fee, depositOrderOpenApiVo.fee) &&
+        Objects.equals(this.netAmount, depositOrderOpenApiVo.netAmount) &&
         Objects.equals(this.fromAddress, depositOrderOpenApiVo.fromAddress) &&
         Objects.equals(this.walletAddress, depositOrderOpenApiVo.walletAddress) &&
         Objects.equals(this.txId, depositOrderOpenApiVo.txId) &&
@@ -380,7 +466,7 @@ public class DepositOrderOpenApiVo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tokenId, chainTokenId, quantity, fromAddress, walletAddress, txId, status, createdAt, updatedAt, userId, subUserId);
+    return Objects.hash(id, orderNo, tokenId, chainTokenId, quantity, fee, netAmount, fromAddress, walletAddress, txId, status, createdAt, updatedAt, userId, subUserId);
   }
 
 
@@ -389,9 +475,12 @@ public class DepositOrderOpenApiVo {
     StringBuilder sb = new StringBuilder();
     sb.append("class DepositOrderOpenApiVo {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    orderNo: ").append(toIndentedString(orderNo)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    chainTokenId: ").append(toIndentedString(chainTokenId)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    netAmount: ").append(toIndentedString(netAmount)).append("\n");
     sb.append("    fromAddress: ").append(toIndentedString(fromAddress)).append("\n");
     sb.append("    walletAddress: ").append(toIndentedString(walletAddress)).append("\n");
     sb.append("    txId: ").append(toIndentedString(txId)).append("\n");
