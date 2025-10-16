@@ -32,7 +32,7 @@ public class PaypazBrokerOpenApiApiDevTest {
 
     static {
         ApiClient localVarApiClient = new ApiClient();
-        localVarApiClient.setBasePath("https://brokerapi-dev.bdy.tech");
+        localVarApiClient.setBasePath("http://localhost:8082");
         localVarApiClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
         localVarApiClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
         api = new PaypazBrokerOpenApiApi(localVarApiClient);
@@ -81,7 +81,7 @@ public class PaypazBrokerOpenApiApiDevTest {
     public void getDepositAddressTest() throws ApiException {
         GetDepositAddressRequest getDepositAddressRequest = new GetDepositAddressRequest();
         getDepositAddressRequest.setClientSubUserId("111111123");
-        getDepositAddressRequest.setTokenId("BTC");
+        getDepositAddressRequest.setTokenId("ETH_FBTC");
         RSubWalletAddressOpenApiVo response = api.getDepositAddress(getDepositAddressRequest);
 
         System.out.println(response.toString());
@@ -100,7 +100,7 @@ public class PaypazBrokerOpenApiApiDevTest {
      */
     @Test
     public void queryBrokerAssetsTest() throws ApiException {
-        String tokenId = "TBSC_BNB";
+        String tokenId = "ETH_BBTC";
         RListBalanceOpenApiVo response = api.queryBrokerAssets(tokenId);
         System.out.println(response.toString());
 

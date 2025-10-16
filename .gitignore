@@ -27,5 +27,5 @@ replay_pid*
 /.travis.yml
 /.openapi-generator/
 /.idea/
-/gradle/wrapper/
+
 /target/
