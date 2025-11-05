@@ -32,7 +32,7 @@ public class PaypazOpenAPITest  {
 
     static {
         ApiClient localVarApiClient = new ApiClient();
-        localVarApiClient.setBasePath("https://brokerapi-test.bdy.tech");
+        localVarApiClient.setBasePath("");
         localVarApiClient.setAPI_KEY("");
         localVarApiClient.setAPI_SECRET("");
         api = new PaypazBrokerOpenApiApi(localVarApiClient);
