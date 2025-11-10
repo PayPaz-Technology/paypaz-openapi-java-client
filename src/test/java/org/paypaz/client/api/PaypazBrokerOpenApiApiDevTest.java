@@ -33,8 +33,8 @@ public class PaypazBrokerOpenApiApiDevTest {
     static {
         ApiClient localVarApiClient = new ApiClient();
         localVarApiClient.setBasePath("http://localhost:8082");
-        localVarApiClient.setAPI_KEY("MCowBQYDK2VwAyEAXmkBih05iCSED2FWQGhHfRKvCEdPvUxKODoThg9K0KA");
-        localVarApiClient.setAPI_SECRET("MC4CAQAwBQYDK2VwBCIEILgovvekSbdI9uLp/TJKJO8mgn9TynZLT+q4EyQR");
+        localVarApiClient.setAPI_KEY("");
+        localVarApiClient.setAPI_SECRET("");
         api = new PaypazBrokerOpenApiApi(localVarApiClient);
     }
 
