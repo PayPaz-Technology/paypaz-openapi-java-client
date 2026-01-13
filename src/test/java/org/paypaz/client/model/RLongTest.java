@@ -20,22 +20,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.paypaz.client.model.WithdrawalOrderOpenApiVo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for RWithdrawalOrderOpenApiVo
+ * Model tests for RLong
  */
-public class RWithdrawalOrderOpenApiVoTest {
-    private final RWithdrawalOrderOpenApiVo model = new RWithdrawalOrderOpenApiVo();
+public class RLongTest {
+    private final RLong model = new RLong();
 
     /**
-     * Model tests for RWithdrawalOrderOpenApiVo
+     * Model tests for RLong
      */
     @Test
-    public void testRWithdrawalOrderOpenApiVo() {
-        // TODO: test RWithdrawalOrderOpenApiVo
+    public void testRLong() {
+        // TODO: test RLong
     }
 
     /**

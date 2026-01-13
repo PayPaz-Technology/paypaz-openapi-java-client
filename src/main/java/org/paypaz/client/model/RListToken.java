@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.paypaz.client.model.WithdrawalOrderOpenApiVo;
+import java.util.List;
+import org.paypaz.client.model.Token;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +52,7 @@ import org.paypaz.client.JSON;
  * 响应信息主体
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-13T16:36:57.720967+08:00[Asia/Shanghai]", comments = "Generator version: 7.13.0")
-public class RWithdrawalOrderOpenApiVo {
+public class RListToken {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   @javax.annotation.Nullable
@@ -64,12 +66,12 @@ public class RWithdrawalOrderOpenApiVo {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private WithdrawalOrderOpenApiVo data;
+  private List<Token> data = new ArrayList<>();
 
-  public RWithdrawalOrderOpenApiVo() {
+  public RListToken() {
   }
 
-  public RWithdrawalOrderOpenApiVo code(@javax.annotation.Nullable Integer code) {
+  public RListToken code(@javax.annotation.Nullable Integer code) {
     this.code = code;
     return this;
   }
@@ -88,7 +90,7 @@ public class RWithdrawalOrderOpenApiVo {
   }
 
 
-  public RWithdrawalOrderOpenApiVo msg(@javax.annotation.Nullable String msg) {
+  public RListToken msg(@javax.annotation.Nullable String msg) {
     this.msg = msg;
     return this;
   }
@@ -107,8 +109,16 @@ public class RWithdrawalOrderOpenApiVo {
   }
 
 
-  public RWithdrawalOrderOpenApiVo data(@javax.annotation.Nullable WithdrawalOrderOpenApiVo data) {
+  public RListToken data(@javax.annotation.Nullable List<Token> data) {
     this.data = data;
+    return this;
+  }
+
+  public RListToken addDataItem(Token dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -117,11 +127,11 @@ public class RWithdrawalOrderOpenApiVo {
    * @return data
    */
   @javax.annotation.Nullable
-  public WithdrawalOrderOpenApiVo getData() {
+  public List<Token> getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable WithdrawalOrderOpenApiVo data) {
+  public void setData(@javax.annotation.Nullable List<Token> data) {
     this.data = data;
   }
 
@@ -135,10 +145,10 @@ public class RWithdrawalOrderOpenApiVo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RWithdrawalOrderOpenApiVo rwithdrawalOrderOpenApiVo = (RWithdrawalOrderOpenApiVo) o;
-    return Objects.equals(this.code, rwithdrawalOrderOpenApiVo.code) &&
-        Objects.equals(this.msg, rwithdrawalOrderOpenApiVo.msg) &&
-        Objects.equals(this.data, rwithdrawalOrderOpenApiVo.data);
+    RListToken rlistToken = (RListToken) o;
+    return Objects.equals(this.code, rlistToken.code) &&
+        Objects.equals(this.msg, rlistToken.msg) &&
+        Objects.equals(this.data, rlistToken.data);
   }
 
   @Override
@@ -149,7 +159,7 @@ public class RWithdrawalOrderOpenApiVo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RWithdrawalOrderOpenApiVo {\n");
+    sb.append("class RListToken {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    msg: ").append(toIndentedString(msg)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
@@ -187,29 +197,39 @@ public class RWithdrawalOrderOpenApiVo {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to RWithdrawalOrderOpenApiVo
+   * @throws IOException if the JSON Element is invalid with respect to RListToken
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RWithdrawalOrderOpenApiVo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RWithdrawalOrderOpenApiVo is not found in the empty JSON string", RWithdrawalOrderOpenApiVo.openapiRequiredFields.toString()));
+        if (!RListToken.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RListToken is not found in the empty JSON string", RListToken.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!RWithdrawalOrderOpenApiVo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RWithdrawalOrderOpenApiVo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!RListToken.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RListToken` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("msg") != null && !jsonObj.get("msg").isJsonNull()) && !jsonObj.get("msg").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `msg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("msg").toString()));
       }
-      // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        WithdrawalOrderOpenApiVo.validateJsonElement(jsonObj.get("data"));
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            Token.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
   }
 
@@ -217,22 +237,22 @@ public class RWithdrawalOrderOpenApiVo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RWithdrawalOrderOpenApiVo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RWithdrawalOrderOpenApiVo' and its subtypes
+       if (!RListToken.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RListToken' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RWithdrawalOrderOpenApiVo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RWithdrawalOrderOpenApiVo.class));
+       final TypeAdapter<RListToken> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RListToken.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RWithdrawalOrderOpenApiVo>() {
+       return (TypeAdapter<T>) new TypeAdapter<RListToken>() {
            @Override
-           public void write(JsonWriter out, RWithdrawalOrderOpenApiVo value) throws IOException {
+           public void write(JsonWriter out, RListToken value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RWithdrawalOrderOpenApiVo read(JsonReader in) throws IOException {
+           public RListToken read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -243,18 +263,18 @@ public class RWithdrawalOrderOpenApiVo {
   }
 
   /**
-   * Create an instance of RWithdrawalOrderOpenApiVo given an JSON string
+   * Create an instance of RListToken given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of RWithdrawalOrderOpenApiVo
-   * @throws IOException if the JSON string is invalid with respect to RWithdrawalOrderOpenApiVo
+   * @return An instance of RListToken
+   * @throws IOException if the JSON string is invalid with respect to RListToken
    */
-  public static RWithdrawalOrderOpenApiVo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RWithdrawalOrderOpenApiVo.class);
+  public static RListToken fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RListToken.class);
   }
 
   /**
-   * Convert an instance of RWithdrawalOrderOpenApiVo to an JSON string
+   * Convert an instance of RListToken to an JSON string
    *
    * @return JSON string
    */

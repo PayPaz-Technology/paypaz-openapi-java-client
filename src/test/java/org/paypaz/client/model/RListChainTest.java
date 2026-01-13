@@ -19,23 +19,24 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.paypaz.client.model.WithdrawalOrderOpenApiVo;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for RWithdrawalOrderOpenApiVo
+ * Model tests for RListChain
  */
-public class RWithdrawalOrderOpenApiVoTest {
-    private final RWithdrawalOrderOpenApiVo model = new RWithdrawalOrderOpenApiVo();
+public class RListChainTest {
+    private final RListChain model = new RListChain();
 
     /**
-     * Model tests for RWithdrawalOrderOpenApiVo
+     * Model tests for RListChain
      */
     @Test
-    public void testRWithdrawalOrderOpenApiVo() {
-        // TODO: test RWithdrawalOrderOpenApiVo
+    public void testRListChain() {
+        // TODO: test RListChain
     }
 
     /**
